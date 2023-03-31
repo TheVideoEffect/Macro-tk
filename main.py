@@ -1,10 +1,8 @@
-import pynput
+from pynput import keyboard, mouse
 import os
+import time
 
-keyboard = pynput.keyboard
-keyboardCon = keyboard.Controller
-mouse = pynput.mouse
-mouseCon = mouse.Controller
+keyboardCon = keyboard.Controller()
 
 def ReadKeyboard(key):
     global activeListener
@@ -19,10 +17,13 @@ def StartKeyboardListener():
     # Collect all event until released
     with keyboard.Listener(on_press = ReadKeyboard) as listener:  
         listener.join()
+        input("Press enter to continue... ")
         MainMenu()
 
 def MainMenu():
     os.system('clear')
+    time.sleep(0.5
+               )
     while True:
         try:
             print("Choose option:\n1. Keyboard\n2. Mouse\n3. Exit")
